@@ -9,14 +9,21 @@ const imageUrls = [
     "../images/icons8-horse-filled-100.png"
 ];
 
+const questionUrl = [
+    "../assert/question.svg"
+];
 
 let images = imageUrls.concat(imageUrls);
 
 
 images = randomImage(images);
 
+let emptyImages = []
+for (let i = 0; i < 16; i++) {
+    emptyImages[i] = questionUrl;
+}
 
-
+console.log(emptyImages)
 
 function randomImage(images) {
     for (let i = images.length - 1; i > 0; i--) {
@@ -28,7 +35,7 @@ function randomImage(images) {
     return images;
 }
 
-function createTable() {
+function createTable(images) {
     let table = document.getElementById("game-board");
     let index = 0;
     for (let i = 0; i < 4; i++) {
@@ -43,4 +50,4 @@ function createTable() {
     }
 }
 
-createTable();
+createTable(emptyImages);
