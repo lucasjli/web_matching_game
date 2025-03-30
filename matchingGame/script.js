@@ -50,3 +50,8 @@ createTable();
 function clickHandler() {
     this.src = images[this.getAttribute("index")];
 }
+
+
+function continueHandler() {
+    console.log("Continue")
+}
