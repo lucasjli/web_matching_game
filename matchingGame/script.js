@@ -14,9 +14,9 @@ const questionUrl = "../assert/question.svg";
 let images = imageUrls.concat(imageUrls);
 
 
-images = randomImage(images);
+images = randomImages(images);
 
-function randomImage(images) {
+function randomImages(images) {
     for (let i = images.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         let temp = images[i];
