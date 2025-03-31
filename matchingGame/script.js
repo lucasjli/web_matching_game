@@ -64,7 +64,7 @@ function clickHandler() {
         lockBoard = true; // Prevent consecutive clicks
         waitingForContinue = true; // Waiting for click "Continue" button
         let button = document.getElementById("continueButton");
-        button.disabled = false;
+        button.disabled = !button.disabled;
     }
 }
 
@@ -83,7 +83,7 @@ function continueHandler() {
 
 function resetBoard() {
     let button = document.getElementById("continueButton");
-    button.disabled = true;
+    button.disabled = !button.disabled;
     firstClick = null;
     secondClick = null;
     lockBoard = false;
