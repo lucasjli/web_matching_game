@@ -13,3 +13,10 @@ td {
 .game-tile {
     cursor: pointer;
 }
+
+#continueButton {
+    display: block; /* Make the button occupy the entire line */
+    margin: 20px auto; /* Automatic left-right center */
+    padding: 10px 20px; /* top and bottom: 10px, left and right: 20px */
+    font-size: 18px;
+}
