@@ -62,24 +62,20 @@ function clickHandler() {
     } else {
         secondClick = this;
         lockBoard = true; // Prevent consecutive clicks
-
-        if (firstClick.src === secondClick.src) { // If the images are same
-            setTimeout(() => {
-                $(firstClick).hide(); // Hide image
-                $(secondClick).hide();// Hide image
-                resetBoard();
-            }, 500); // Hide after 0.5s
-        } else {
-            waitingForContinue = true; // Waiting for click "Continue" button
-        }
+        waitingForContinue = true; // Waiting for click "Continue" button
     }
 }
 
 
 function continueHandler() {
     if (waitingForContinue && firstClick && secondClick) { // If the images are not match
-        firstClick.src = questionUrl; // Set the image as "?"
-        secondClick.src = questionUrl;// Set the image as "?"
+        if (firstClick.src === secondClick.src) { // If the images are same
+            $(firstClick).hide(); // Hide image
+            $(secondClick).hide();// Hide image
+        } else {
+            firstClick.src = questionUrl; // Set the image as "?"
+            secondClick.src = questionUrl;// Set the image as "?"
+        }
         resetBoard();
     }
 }
