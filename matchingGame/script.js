@@ -46,12 +46,50 @@ function createTable() {
 
 createTable();
 
-
+let firstClick = null; // The first image that click
+let secondClick = null; // The second image that click
+let lockBoard = false; // Prevent consecutive clicks
+let waitingForContinue = false; // Waiting for click "Continue"
 function clickHandler() {
-    this.src = images[this.getAttribute("index")];
+    if (lockBoard || waitingForContinue) return; // If locking or waiting for "Continue", the click does not respond
+    if (this === firstClick) return; // Prevent clicking on the same page
+
+    let index = this.getAttribute("index"); // Get current image's index
+    this.src = images[index]; // Display image
+
+    if (!firstClick) {
+        firstClick = this;
+    } else {
+        secondClick = this;
+        lockBoard = true; // Prevent consecutive clicks
+
+        if (firstClick.src === secondClick.src) { // If the images are same
+            setTimeout(() => {
+                $(firstClick).hide(); // Hide image
+                $(secondClick).hide();// Hide image
+                resetBoard();
+            }, 500); // Hide after 0.5s
+        } else {
+            waitingForContinue = true; // Waiting for click "Continue" button
+        }
+    }
 }
 
 
 function continueHandler() {
-    console.log("Continue")
+    if (waitingForContinue && firstClick && secondClick) { // If the images are not match
+        firstClick.src = questionUrl; // Set the image as "?"
+        secondClick.src = questionUrl;// Set the image as "?"
+        resetBoard();
+    }
 }
+
+function resetBoard() {
+    firstClick = null;
+    secondClick = null;
+    lockBoard = false;
+    waitingForContinue = false;
+}
+
+// Bind a click event listener to the Continue button
+document.getElementById("continueButton").addEventListener("click", continueHandler);
