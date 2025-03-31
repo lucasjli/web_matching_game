@@ -63,9 +63,10 @@ function clickHandler() {
         secondClick = this;
         lockBoard = true; // Prevent consecutive clicks
         waitingForContinue = true; // Waiting for click "Continue" button
+        let button = document.getElementById("continueButton");
+        button.disabled = false;
     }
 }
-
 
 function continueHandler() {
     if (waitingForContinue && firstClick && secondClick) { // If the images are not match
@@ -81,6 +82,8 @@ function continueHandler() {
 }
 
 function resetBoard() {
+    let button = document.getElementById("continueButton");
+    button.disabled = true;
     firstClick = null;
     secondClick = null;
     lockBoard = false;
