@@ -36,6 +36,7 @@ function createTable() {
             let img = document.createElement("img");  // Create <img> tag
             // img.src = images[index++];
             img.src = questionUrl;  // Set all images are "?" at the beginning
+            img.id = "img" + index;  //  Add ids for every images
             img.setAttribute("index", String(index++));  // Set "index" attribute and translate to String type
             img.classList.add("game-tile");  // Add "game-tile" CSS class
             img.addEventListener("click", clickHandler)  // Bind a click event so that when the user clicks on an image, the clickHandler function is called
