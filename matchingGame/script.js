@@ -49,9 +49,9 @@ createTable();
 let firstClick = null; // The first image that click
 let secondClick = null; // The second image that click
 let lockBoard = false; // Prevent consecutive clicks
-let waitingForContinue = false; // Waiting for click "Continue"
+// let waitingForContinue = false; // Waiting for click "Continue"
 function clickHandler() {
-    if (lockBoard || waitingForContinue) return; // If locking or waiting for "Continue", the click does not respond
+    if (lockBoard) return; // If locking or waiting for "Continue", the click does not respond
     if (this === firstClick) return; // Prevent clicking on the same page
 
     let index = this.getAttribute("index"); // Get current image's index
@@ -62,14 +62,14 @@ function clickHandler() {
     } else {
         secondClick = this;
         lockBoard = true; // Prevent consecutive clicks
-        waitingForContinue = true; // Waiting for click "Continue" button
+        // waitingForContinue = true; // Waiting for click "Continue" button
         let button = document.getElementById("continueButton");
         button.disabled = !button.disabled;
     }
 }
 
 function continueHandler() {
-    if (waitingForContinue && firstClick && secondClick) { // If the images are not match
+    if (lockBoard && firstClick && secondClick) { // If the images are not match
         if (firstClick.src === secondClick.src) { // If the images are same
             $(firstClick).hide(); // Hide image
             $(secondClick).hide();// Hide image
@@ -87,7 +87,7 @@ function resetBoard() {
     firstClick = null;
     secondClick = null;
     lockBoard = false;
-    waitingForContinue = false;
+    // waitingForContinue = false;
 }
 
 // Bind a click event listener to the Continue button
