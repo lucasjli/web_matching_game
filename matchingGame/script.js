@@ -11,10 +11,10 @@ const imageUrls = [
 
 const questionUrl = "../assert/question.svg";
 
-let images = imageUrls.concat(imageUrls);
+let images = imageUrls.concat(imageUrls); // Combine imageUrls[], return a new images[] that has double elements
 
 
-images = randomImages(images);
+images = randomImages(images);  // Randomly shuffle the elements in the images[] array
 
 function randomImages(images) {
     for (let i = images.length - 1; i > 0; i--) {
@@ -27,19 +27,19 @@ function randomImages(images) {
 }
 
 function createTable() {
-    let table = document.getElementById("game-board");
+    let table = document.getElementById("game-board");  // Get table by id "game-board"
     let index = 0;
     for (let i = 0; i < 4; i++) {
-        let row = table.insertRow();
+        let row = table.insertRow();  // Insert row <tr> in <table>
         for (let j = 0; j < 4; j++) {
-            let cell = row.insertCell();
-            let img = document.createElement("img");
+            let cell = row.insertCell();  // Insert <td> in <tr>
+            let img = document.createElement("img");  // Create <img> tag
             // img.src = images[index++];
-            img.src = questionUrl;
-            img.setAttribute("index", String(index++));
-            img.classList.add("game-tile");
-            img.addEventListener("click", clickHandler)
-            cell.appendChild(img);
+            img.src = questionUrl;  // Set all images are "?" at the beginning
+            img.setAttribute("index", String(index++));  // Set "index" attribute and translate to String type
+            img.classList.add("game-tile");  // Add "game-tile" CSS class
+            img.addEventListener("click", clickHandler)  // Bind a click event so that when the user clicks on an image, the clickHandler function is called
+            cell.appendChild(img);  //  Add the <img> as a child element to the <td>
         }
     }
 }
