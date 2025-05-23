@@ -1,16 +1,8 @@
-# COMPX575-Task Eight
-Due on **Sunday the 4th of April at midday**.
+# Web matching game
 
 # Task Goal
 * Gain experience using a library.
 * In this exercise, you will learn about using a third-party JavaScript library (jQuery) to implement a matching memory game.
-
-## Preamble
-0. You may complete this project by working in pairs, pair programming is encouraged.
-1. Fork this repository using the button at the top of the project page.
-2. Make sure that the visibility of your project is private. (Settings > expand Permissions > Project visibility: Private; Save changes).  *Note: Class teachers and tutors will still have read access to your project for marking purposes.*
-3. Clone the new repository to your computer using Git.  Store the repository in your COMPX575 directory.
-4. Remember to commit and push regularly as you work on the project!  
 
 ### Part 1: Create the matching game offline
 1. Create a directory called *matchingGame*
@@ -62,10 +54,3 @@ At the end, your *matchingGame* directory should contain the following:
 * script.js
 * style.css
 * images/*
-
-
-## Grading
-This task is worth as much as 5% of your final grade.  
-
-## Submission
-On top of the commits to your Git repository, please upload your source files to moodle.
